@@ -9,6 +9,7 @@ import { ProductItemComponent } from './product-list/product-item/product-item.c
 import { ProductItemDetailsComponent } from './product-list/product-item-details/product-item-details.component';
 import { ConfirmationComponent } from './cart/confirmation/confirmation.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavigationComponent } from './navigation/navigation.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
