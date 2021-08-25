@@ -1,1 +1,4 @@
-<p>cart works!</p>
+<div class="product-index">
+    <button (click)="clearCart()">Clear cart</button>
+    <app-product-item *ngFor="let product of productsList" [product]="product"></app-product-item>
+</div>

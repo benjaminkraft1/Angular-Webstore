@@ -1,1 +1,18 @@
-<p>product-item works!</p>
+<div class="product-container">
+  <div class="row"> 
+    <div class="block span3">
+      <div class="product">
+        <img src="https://i0.wp.com/blog.submain.com/wp-content/uploads/2019/03/Cntrl_shift_d_keys_for_GhostDoc_launch_shortcut.jpg?resize=768%2C586&ssl=1">
+      </div>
+    
+      <div class="info">
+        <h4>{{product.name}}</h4>
+        <span class="description">
+          {{product.description}}
+        </span>
+        <span class="price">{{ product.price | currency: "EUR" }}</span>
+        <button (click)="addToCart()">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>
