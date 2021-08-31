@@ -3,13 +3,15 @@ export class Product {
     name: string;
     description: string;
     price: number;
-    img: string;
+    image: string;
+    quantity: number;
 
     constructor() {
         this.id = 0;
         this.name = "";
         this.description = "";
         this.price = 0;
-        this.img = "";
+        this.image = "";
+        this.quantity = 1;
     }
 }

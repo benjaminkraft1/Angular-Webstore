@@ -11,16 +11,28 @@ import { CartService } from '../services/cart.service';
 
 export class CartComponent implements OnInit {
   productsList: Product[] = [];
+  full_name: string = "";
+  adress: string = "";
+  credit_card: number = NaN;
+  nItems: number = NaN;
+  total: number = NaN;
+
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void { 
     this.productsList = this.cartService.getCart();
+    this.nItems = this.cartService.getNumberOfItems();
+    this.total = this.cartService.getTotalPrice();
   }
 
   clearCart(): void {
     this.cartService.clearCart();
     this.productsList = [];
+  }
+
+  onSubmit(): void {
+    alert(`${this.full_name} has submitted the odrder successfully!`);
   }
 
 }

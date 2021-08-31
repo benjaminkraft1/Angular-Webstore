@@ -1,9 +1,11 @@
-
-<div class="nav-container">
-    <h1>Webstore</h1>
-    <ul>
-        <a class="navigation-item" routerLink="/">Store </a>
-        <a class="navigation-item" routerLink="/cart">Cart </a>
-    </ul>
-
-</div>
+<nav class="navbar navbar-default">
+    <a class="navbar-brand">Webstore</a>
+    <div class="container-fluid">
+       <div class="collapse navbar-collapse">
+           <ul class="nav navbar-nav">
+               <li> <a class="navigation-item" routerLink="/">Store </a></li>
+               <li> <a class="navigation-item" routerLink="/cart"><i class="fa fa-shopping-cart">({{nItems}})</i></a></li>
+           </ul>
+       </div>
+    </div>
+  </nav>

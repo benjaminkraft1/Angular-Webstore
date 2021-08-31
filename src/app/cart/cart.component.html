@@ -1,4 +1,43 @@
-<div class="product-index">
-    <button (click)="clearCart()">Clear cart</button>
-    <app-product-item *ngFor="let product of productsList" [product]="product"></app-product-item>
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Shopping Cart</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted">3 items</div>
+                </div>
+            </div>
+            <app-cart-item *ngFor="let product of productsList" [product]="product"></app-cart-item>
+            
+            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">ITEMS {{nItems}}</div>
+                <div class="col text-right">&euro; {{total}}</div>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+                <p>Full Name</p>
+                <input type="text" name="full_name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required minlength="6" [(ngModel)]="full_name">
+                <p>Adress</p>
+                <input type="text" name="adress" placeholder="adress" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required minlength="6" [(ngModel)]="adress">
+                <p>Credit Card Number</p>
+                <input type="number" name="credit_card" placeholder="credit card number" pattern="(\d{4}(\s)?){4}" minlength="16" [(ngModel)]="credit_card">
+                
+
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">&euro; {{total}}</div>
+            </div> 
+            <button  class="btn" type="submit">CHECKOUT</button>
+             
+        </form>
+        </div>
+    </div>
 </div>

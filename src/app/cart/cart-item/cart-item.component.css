@@ -1,0 +1,19 @@
+.flex-row-container {
+    background: #aaa;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.flex-row-container > .flex-row-item {
+    flex: 1 1 30%; /*grow | shrink | basis */
+    height: 100px;
+}
+
+.flex-row-item {
+  background-color:white;
+}
+
+img {
+    height: 100%
+}

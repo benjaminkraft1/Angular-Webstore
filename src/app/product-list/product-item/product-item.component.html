@@ -2,7 +2,7 @@
   <div class="row"> 
     <div class="block span3">
       <div class="product">
-        <img src="https://i0.wp.com/blog.submain.com/wp-content/uploads/2019/03/Cntrl_shift_d_keys_for_GhostDoc_launch_shortcut.jpg?resize=768%2C586&ssl=1">
+        <img src="{{product.image}}">
       </div>
     
       <div class="info">
@@ -10,8 +10,23 @@
         <span class="description">
           {{product.description}}
         </span>
-        <span class="price">{{ product.price | currency: "EUR" }}</span>
-        <button (click)="addToCart()">Add to cart</button>
+        <span class="price">
+            {{ product.price | currency: "EUR" }}
+            <button routerLink="/product/{{ product.id }}" type="button" class="btn btn">Details</button>
+            <select name="quantity" (change)="setQuantity($event)">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button (click)="addToCart()" type="button" class="btn btn-info">Add to cart</button>
+        </span>
       </div>
     </div>
   </div>

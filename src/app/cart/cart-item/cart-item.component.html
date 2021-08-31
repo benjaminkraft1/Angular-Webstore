@@ -1,0 +1,9 @@
+<div class="flex-row-container">
+    <div class="flex-row-item">
+        <img class="img-fluid" src="{{product.image}}">
+    </div>
+    <div class="flex-row-item"><a routerLink="/product/{{ product.id }}">{{product.name}}</a></div>
+    <div class="flex-row-item"><a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> 
+        {{ product.price | currency: "EUR" }}
+        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div></div>
+</div>

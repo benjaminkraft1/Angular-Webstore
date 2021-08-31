@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product = new Product();
+  quantity: number = 1;
 
   constructor(private cart: CartService, private products: ProductsService) { }
 
@@ -17,7 +18,10 @@ export class ProductItemComponent implements OnInit {
   }
 
   addToCart(): void {
-    this.cart.addToCart(this.product);  
-    alert("Added!");   
+    this.cart.addToCart(this.product);
+  }
+
+  setQuantity(event: Event): void {
+    this.quantity = parseInt( (event.target as HTMLSelectElement).value);
   }
 }

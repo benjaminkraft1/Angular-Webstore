@@ -1,1 +1,30 @@
-<p>product-item-details works!</p>
+<div class="product-container">
+    
+
+        <div class="product">
+          <img src="{{product.image}}">
+        </div>
+        <div class="info">
+          <h4>{{product.name}}</h4>
+          <span class="description">
+            {{product.description}}
+          </span>
+          <span class="price">
+              {{ product.price | currency: "EUR" }}
+              <button (click)="addToCart()" type="button" class="btn btn-info">Add to cart</button>
+        
+              <select name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+          </span>
+        </div>
+      </div>
