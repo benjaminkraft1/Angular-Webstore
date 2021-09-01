@@ -16,6 +16,7 @@ sudo mkdir -p "${dst_dir}"
 wget -c https://nodejs.org/download/release/${VERSION}/node-${VERSION}-${DISTRO}.tar.xz -O - | sudo tar -xJ -C "${dst_dir}"
 # add to path / maybe also add it to your .bashrc
 export PATH="/usr/local/lib/nodejs/node-${VERSION}-${DISTRO}/bin:${PATH}"
+```
 
 Install Angular CLI
 ```
