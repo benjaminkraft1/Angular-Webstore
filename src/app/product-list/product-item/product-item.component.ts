@@ -24,4 +24,6 @@ export class ProductItemComponent implements OnInit {
   setQuantity(event: Event): void {
     this.quantity = parseInt( (event.target as HTMLSelectElement).value);
   }
+
+
 }
