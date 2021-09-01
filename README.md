@@ -1,6 +1,10 @@
 # AngularWebstoreFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
+The Project was built for the Udacity Full Stack Java Script Developer Nano Degree. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2 and realizes a simple single page webstore. 
+
+The User can pick items from a product list, which are then added to the shopping cart. There is also a simple checkout form, which checks for correct inputs and enables the checkout button then.
+
+![alt text](screenshots/products.png)
 
 ## Installation
 Install NodeJs
@@ -40,8 +44,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 # Overview
-## Products List
-![alt text](screenshots/products.png)
 ## Product Details Page
 ![alt text](screenshots/details.png)
 ## Cart and Checkout
