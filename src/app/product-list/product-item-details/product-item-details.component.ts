@@ -11,6 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductItemDetailsComponent implements OnInit {
   @Input() product: Product = new Product();
+  quantity = 1;
 
   constructor(private cart: CartService, private productsService: ProductsService, private route: ActivatedRoute) { }
 
@@ -21,11 +22,11 @@ export class ProductItemDetailsComponent implements OnInit {
   }
 
   addToCart(): void {
-    this.cart.addToCart(this.product);
+    this.cart.addToCart(this.product, this.quantity);
   }
 
   setQuantity(event: Event): void {
-    this.product.quantity = parseInt( (event.target as HTMLSelectElement).value);
+    this.quantity = parseInt( (event.target as HTMLSelectElement).value);
   }
 
   

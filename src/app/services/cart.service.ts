@@ -14,10 +14,10 @@ export class CartService {
 
   constructor() { }
 
-  addToCart(product: Product) {
+  addToCart(product: Product, quantity: number) {
     let productExists: Product | undefined = this.productsList.find(p => p.id == product.id);
     if (productExists) {
-      productExists.quantity += product.quantity;
+      productExists.quantity += quantity;
     } else {
       this.productsList.push(product);
     }
