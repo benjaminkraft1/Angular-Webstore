@@ -12,15 +12,15 @@ export class ProductsService {
   products: Product[] = [];
 
   constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {this.products = data})
+    this.getJSON().subscribe(data => this.products = data)
    }
 
   getJSON(): Observable<any> {
     return this.http.get("../assets/data.json");
   }
 
-  getProducts() {
-    return this.products
+  getProducts(): Observable<any>  {
+    return this.http.get("../assets/data.json");
   }
 
   getProductById(id: number): Product {
