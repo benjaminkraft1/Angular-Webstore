@@ -28,9 +28,9 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FlexLayoutModule,
     NgbModule,
-    HttpClientModule,
     FormsModule
   ],
   providers: [],
