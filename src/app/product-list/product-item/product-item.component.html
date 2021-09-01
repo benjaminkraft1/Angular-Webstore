@@ -9,10 +9,10 @@
         <h4>{{product.name}}</h4>
         <span class="description">
           {{product.description}}
+        <button routerLink="/product/{{ product.id }}" type="button" class="btn btn">Details</button>
         </span>
         <span class="price">
             {{ product.price | currency: "EUR" }}
-            <button routerLink="/product/{{ product.id }}" type="button" class="btn btn">Details</button>
             <select name="quantity" (change)="setQuantity($event)">
               <option value="1">1</option>
               <option value="2">2</option>

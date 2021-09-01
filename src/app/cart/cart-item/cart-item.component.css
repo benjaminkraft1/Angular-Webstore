@@ -1,12 +1,13 @@
 .flex-row-container {
-    background: #aaa;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    margin: 2%;
+    background: #fff;
+    box-shadow: 0 6px 20px 0 rgba(209, 209, 209, 0.9);
+    
 }
 .flex-row-container > .flex-row-item {
-    flex: 1 1 30%; /*grow | shrink | basis */
+    flex: 1 1 10%; /*grow | shrink | basis */
     height: 100px;
 }
 

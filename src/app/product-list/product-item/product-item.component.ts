@@ -10,7 +10,6 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product = new Product();
-  quantity: number = 1;
 
   constructor(private cart: CartService, private products: ProductsService) { }
 
@@ -22,6 +21,6 @@ export class ProductItemComponent implements OnInit {
   }
 
   setQuantity(event: Event): void {
-    this.quantity = parseInt( (event.target as HTMLSelectElement).value);
+    this.product.quantity = parseInt( (event.target as HTMLSelectElement).value);
   }
 }

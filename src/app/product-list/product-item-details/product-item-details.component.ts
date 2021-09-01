@@ -24,5 +24,9 @@ export class ProductItemDetailsComponent implements OnInit {
     this.cart.addToCart(this.product);
   }
 
+  setQuantity(event: Event): void {
+    this.product.quantity = parseInt( (event.target as HTMLSelectElement).value);
+  }
+
   
 }

@@ -6,14 +6,33 @@ import { Product } from '../models/Product';
   providedIn: 'root'
 })
 export class CartService {
+  
   productsList: Product[] = [];
-  nItems:  BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  updatedProductsList = new BehaviorSubject<Product[]>([]);
+  nItems = new BehaviorSubject<number>(0);
+  totalPrice = new BehaviorSubject<number>(0);
 
   constructor() { }
 
   addToCart(product: Product) {
-    this.productsList.push(product);
+    let productExists: Product | undefined = this.productsList.find(p => p.id == product.id);
+    if (productExists) {
+      productExists.quantity += product.quantity;
+    } else {
+      this.productsList.push(product);
+    }
+
+    this.updatedProductsList.next(this.productsList)
     this.nItems.next(this.getNumberOfItems());
+    this.totalPrice.next(this.getTotalPrice());
+  }
+
+  removeFromCart(product: Product) {
+    product.quantity = 1;
+    this.productsList = this.productsList.filter(p => p !== product);
+    this.nItems.next(this.getNumberOfItems());
+    this.totalPrice.next(this.getTotalPrice());
+    this.updatedProductsList.next(this.productsList)
   }
 
   getCart() {
@@ -35,10 +54,5 @@ export class CartService {
       x = x + this.productsList[i].quantity * this.productsList[i].price;
     }
     return x;
-  }
-
-  clearCart() {
-    this.productsList = [];
-    return this.productsList;
   }
 }

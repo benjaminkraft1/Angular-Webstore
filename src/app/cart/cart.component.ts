@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,29 +11,24 @@ import { CartService } from '../services/cart.service';
 })
 
 export class CartComponent implements OnInit {
-  productsList: Product[] = [];
+  productsList$: Observable<Product[]> = new Observable<Product[]>();
   full_name: string = "";
   adress: string = "";
-  credit_card: number = NaN;
-  nItems: number = NaN;
-  total: number = NaN;
+  credit_card: string = "";
+  nItems$: Observable<number> = new Observable<number>();
+  total$: Observable<number> = new Observable<number>();
 
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void { 
-    this.productsList = this.cartService.getCart();
-    this.nItems = this.cartService.getNumberOfItems();
-    this.total = this.cartService.getTotalPrice();
-  }
-
-  clearCart(): void {
-    this.cartService.clearCart();
-    this.productsList = [];
+    this.productsList$ = this.cartService.updatedProductsList;
+    this.nItems$ = this.cartService.nItems;
+    this.total$ = this.cartService.totalPrice;
   }
 
   onSubmit(): void {
-    alert(`${this.full_name} has submitted the odrder successfully!`);
+    this.router.navigateByUrl("/confirm");
   }
 
 }

@@ -11,10 +11,14 @@ import { CartComponent } from '../cart.component';
 export class CartItemComponent implements OnInit {
   @Input() product: Product = new Product();
 
-  constructor(private cartService: CartService, private cartComponent: CartComponent) { }
+  constructor(private cartService: CartService) { }
 
 
   ngOnInit(): void {
+  }
+
+  removeFromCart(): void {
+    this.cartService.removeFromCart(this.product)
   }
 
 }
