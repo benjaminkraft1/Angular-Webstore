@@ -31,4 +31,16 @@ export class CartComponent implements OnInit {
     this.router.navigateByUrl("/confirm");
   }
 
+  credit_card_change(value: string): void {
+    this.credit_card = value;
+  }
+
+  name_change(value: string): void {
+    this.full_name = value;
+  }
+
+  adress_change(value: string): void {
+    this.adress = value;
+  }
+
 }

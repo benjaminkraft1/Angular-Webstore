@@ -20,19 +20,19 @@
             <hr>
             <form #form="ngForm" (ngSubmit)="onSubmit()">
                 <label>Full Name</label>
-                <input type="text" name="full_name" placeholder="full name" [(ngModel)]="full_name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required minlength="6" #fullName="ngModel">
+                <input type="text" name="full_name" placeholder="full name" [ngModel]="full_name" (ngModelChange)="name_change($event)" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required minlength="6" #fullName="ngModel">
                 <div *ngIf="fullName.invalid && fullName.dirty">
                     Please provide your full name as follows: "FirstName LastName".
                 </div>
                 
                 <label>Adress</label>
-                <input type="text" name="adress" placeholder="adress" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required minlength="6" [(ngModel)]="adress" #fullAdress="ngModel">
+                <input type="text" name="adress" placeholder="adress" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required minlength="6" [ngModel]="adress" (ngModelChange)="adress_change($event)" #fullAdress="ngModel">
                 <div *ngIf="fullAdress.invalid && fullAdress.dirty">
                     Please provide your adress as follows: "City Streetname HouseNumber".
                 </div>
 
                 <label>Credit Card Number</label>
-                <input type="text" name="credit_card" placeholder="credit card number" pattern="(\d{4}(\s)?){4}" minlength="16" maxlength="16" [(ngModel)]="credit_card" #creditCard="ngModel">
+                <input type="text" name="credit_card" placeholder="credit card number" pattern="(\d{4}(\s)?){4}" minlength="16" maxlength="16" [ngModel]="credit_card" (ngModelChange)="credit_card_change($event)" #creditCard="ngModel">
                 <div *ngIf="creditCard.errors?.pattern">
                     Please provide a 16 digit credit card number.
                 </div>
